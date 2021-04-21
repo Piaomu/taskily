@@ -1,0 +1,179 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>The App | taskily</title>
+  <link rel="shortcut icon" type="image/png" href="images/favicon-32x32.png"/>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#FFA000">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/css/prism.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body onload="preLoad()">
+    <!--Insert Menu-->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-gray mb-5">
+        <a class="navbar-brand" href="/index.html"><span class="text-magenta">task</span>ily</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link nav-hover-magenta" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/app.html"><span class="sr-only">(current)</span>The App</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-hover-magenta" href="/code.html">See the Code</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-hover-magenta" href="#" target="_blank">Get the Code</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-hover-cyan" href="https://kaseywahl.io/about.html" target="_blank">About Kasey</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="jumbotron jumbotron-fluid header">
+  <div class="container hero">
+    <div>
+        <h1 class="text-light text-center text-shadow"><span class="text-magenta">task</span>ily</h1>
+        <h3 class="text-light text-center text-shadow">Do, <span class="text-magenta"> smarter.</span></h3>
+    </div>
+  </div>
+</div>
+
+    <!--Insert your main content here-->
+<section>
+    <div class="container">
+      <h1 class="text-center p-3">Tasks <span id="taskCount"></span> </h1>
+        <!-- Side Nav -->
+        <div class="row">
+            <div class="col-3 btn-outline-dark">
+                <div class="btn-group w-100">
+                    <button type="button" class="btn btn-dark w-100">Tasks By Status</button>
+                    <button type="button" class="btn btn-dark dropdown-toggle"></button>
+                </div>
+            </div>
+<div class="col-9">
+    <div class="row">
+    <button type="button" class="btn btn-dark w-50" data-toggle="modal" data-target="#addTask">Add Task</button>
+    <button onclick="ClearTasks()" type="button" class="btn btn-light border-dark w-50">Clear Tasks</button>
+  <hr>
+<table class="table table-striped mt-2" id="eventList">
+  <thead class="thead-dark">
+    <tr>
+      <th>Task:</th>
+      <th>Created:</th>
+      <th>Due:</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="taskBody">
+    <!-- Data Goes Here -->
+  </tbody>
+</table> 
+<div class="modal" id="addTask">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Add New Task</h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="formData">
+        <div class="form-group">
+          <label for="newTitle">Title:</label>
+          <input type="text" class="form-control" id="newTitle" placeholder="Enter task">
+        </div>
+        <div class="form-group">
+          <label for="newDueDate">Due Date:</label>
+          <input type="date" class="form-control" id="newDueDate" placeholder="mm/dd/yyyy">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-dark" onclick="CreateTask()" data-dismiss="modal">Save</button>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="editTask">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Edit Task</h4>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="formData">
+        <input type="hidden" id="taskId">
+        <div class="form-group">
+          <label for="editTitle">Title:</label>
+          <input type="text" class="form-control" id="editTitle" placeholder="Enter task">
+        </div>
+        <div class="form-group">
+          <label for="editDueDate">Due Date:</label>
+          <input type="date" class="form-control" id="editDueDate" placeholder="mm/dd/yyyy">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-dark" onclick="EditTask()" data-dismiss="modal">Save</button>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+
+
+    <template id="data-template">
+    <tr id="TaskRow" class="table-dark text-dark">
+      <td class="d-none" id="id"></td>
+      <td id="title"></td>
+      <td id="created"></td>
+      <td id="dueDate"></td>
+      <td id="tdCrud" data-id="">
+
+      <a onclick="CompleteTask(this)" class="btn btn-sm btn-dark text-light">Complete</a>
+      <a data-toggle="modal" href="#editTask" onclick="EditModal(this)" class="btn btn-sm btn-light btn-outline-dark">Edit</a>
+      <!-- <a onclick="CloneTask(this)" class="btn btn-sm btn-dark text-light">Clone</a> -->
+      <a onclick="DeleteTask(this)" class="btn btn-sm btn-dark text-light">Delete</a>
+      </td>
+    </tr>
+    </template>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="/js/site.js"></script>
+</body>
+
+</html>

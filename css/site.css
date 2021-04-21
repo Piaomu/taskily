@@ -1,0 +1,220 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-image: url(/img/bg-dots.png);
+}
+
+.header {
+  background-color: #542cb7;
+}
+
+/* @media (mid-width: 768px) { */
+.header {
+  /* background-image: url(/img/taco_cat_jumbotron.jpg); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: absolute;
+  background-color: #542cb7;
+}
+
+
+.hero {
+  margin: 0 auto;
+  margin-top: 30px;
+  overflow: hidden;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.myBtn {
+  background-color: #542cb7 !important;
+}
+
+.myBtn:hover {
+  opacity: .9;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  line-height: 35px;
+  /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+  -------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body>.container {
+  padding: 60px 15px 0px;
+}
+
+body>.container-fluid {
+  padding: 60px 15px 0px;
+}
+
+.footer>.container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.row>div {
+  margin-bottom: 15px;
+}
+
+.content {
+  min-height: 300px;
+  background: #dbdfe5;
+}
+
+.content.bg-alt {
+  background: #b4bac0;
+}
+
+.sidebar-top {
+  min-height: 140px;
+  background: #dbdfe7;
+}
+
+.sidebar-bottom {
+  min-height: 145px;
+  background: #7e8aa0;
+  margin-bottom: -15px;
+}
+
+.sidebar,
+.content {
+  min-height: 300px;
+}
+
+.content-top {
+  min-height: 160px;
+  background: #b4bac0;
+}
+
+.content-bottom {
+  min-height: 125px;
+  background: #7e8aa0;
+  margin-bottom: -15px;
+}
+
+.content-bottom.bg-alt {
+  background: #9ca5b6;
+}
+
+@media (max-width: 991px) {
+  .content-bottom {
+    margin-bottom: 15px;
+  }
+
+  .content-bottom.bg-alt {
+    margin-bottom: -15px;
+  }
+}
+
+.intro {
+  background: #7e8aa0;
+  min-height: 250px;
+}
+
+.section {
+  min-height: 150px;
+  background: #dbdfe5;
+}
+
+.section.bg-alt {
+  background: #b4bac0;
+}
+
+.bg-cyan {
+  background: #00f8fe;
+}
+
+.bg-magenta {
+  background: #e5509a;
+}
+
+.bg-gold {
+  background: #fd9c29;
+}
+
+.bg-purple {
+  background: #542cb7;
+}
+
+.bg-gray {
+  background: #222222;
+}
+
+.text-cyan {
+  color: #00f8fe;
+}
+
+.text-magenta {
+  color: #e5509a;
+}
+
+.text-gold {
+  color: #fd9c29;
+}
+
+.text-purple {
+  color: #542cb7;
+}
+
+.text-gray {
+  color: #222222;
+}
+
+.portfolio-link:hover {
+  color: #e5509a;
+  text-decoration: none;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px #222222;
+}
+
+/* Explainers */
+.explainer-dropdowns {
+  color: #542cb7;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.explainer-dropdowns:hover {
+  border-bottom: #542cb7 1px solid;
+}
+
+.nav-hover-cyan:hover {
+  color: #00f8fe !important;
+}
+
+.nav-hover-magenta:hover {
+  color: #e5509a !important;
+}
+
+.nav-hover-gold:hover {
+  color: #fd9c29 !important;
+}
+
+tr.complete>td:nth-child(-n+4) {
+  text-decoration: line-through;
+}
