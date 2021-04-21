@@ -3,6 +3,7 @@
 [Live Demo](https://determined-rosalind-6e2ecb.netlify.app) |
 [Portfolio](https://kaseywahl.io/)
 
+![taskily](https://user-images.githubusercontent.com/77030627/115619626-b8528f80-a2b9-11eb-9b38-5a56f064fc3e.png)
 ---
 
 ## Description
